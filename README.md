@@ -54,40 +54,63 @@ The addition of an integral term to the controller ( ) tends to help reduce stea
 ### Without Controller (Open loop System)
 
 num=[1]
+
 den=[1 10 20]
+
 sys=tf(num,den)
+
 subplot(2,2,1)
+
 step(sys)
+
 title('open loop system')
 
 ### With P-Controller
 
 Kp=300
+
 c1=pid(Kp)
+
 G1=feedback(c1*sys,1)
+
 subplot(2,2,2)
+
 step(G1)
+
 title('P-CONTROLLER')
 
 ### With PI Controller
 
 Kp=30
+
 Ki=70
+
 c2=pid(Kp,Ki)
+
 G2=feedback(c2*sys,1)
+
 subplot(2,2,3)
+
 step(G2)
+
 title('Pi-CONTROLLER')
 
 ### With PID Controller
 
 Kp=350
+
 Ki=300
+
 Kd=50
+
 c3=pid(Kp,Ki,Kd)
+
 G3=feedback(c3*sys,1)
+
 subplot(2,2,4)
+
 step(G3)
+
 title('Pid-CONTROLLER')
 
 ## Output: 
